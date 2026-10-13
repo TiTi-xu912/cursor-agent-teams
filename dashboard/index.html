@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Cursor Agent Teams · 调度台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="team-index">
+        <header class="brand">
+          <span class="brand-mark" aria-hidden="true">CAT</span>
+          <div>
+            <p>Cursor Agent Teams</p>
+            <h1>协作调度台</h1>
+          </div>
+        </header>
+        <div class="index-label">
+          <span>团队索引</span>
+          <button id="refresh" type="button">刷新</button>
+        </div>
+        <nav id="team-list" aria-label="团队列表"></nav>
+        <footer>
+          <span class="pulse"></span>
+          <span id="connection">正在连接本地状态库</span>
+        </footer>
+      </aside>
+
+      <main>
+        <section id="empty" class="empty-state">
+          <p class="eyebrow">等待派工</p>
+          <h2>还没有团队状态</h2>
+          <p>在 Cursor 中运行 <code>/agent-teams</code>，或调用 MCP 工具创建团队。</p>
+        </section>
+
+        <div id="workspace" hidden>
+          <header class="mission-header">
+            <div>
+              <p class="eyebrow" id="team-id"></p>
+              <h2 id="team-name"></h2>
+              <p id="team-goal" class="mission-goal"></p>
+            </div>
+            <div id="team-status" class="status-stamp"></div>
+          </header>
+
+          <section class="status-tape" aria-label="任务统计">
+            <div><span>待命</span><strong id="count-pending">0</strong></div>
+            <div><span>执行</span><strong id="count-running">0</strong></div>
+            <div><span>完成</span><strong id="count-completed">0</strong></div>
+            <div><span>异常</span><strong id="count-failed">0</strong></div>
+            <div class="updated"><span>状态时间</span><strong id="updated-at">—</strong></div>
+          </section>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Roster</p>
+                <h3>成员调度栏</h3>
+              </div>
+              <p>模型、职责与当前占用</p>
+            </div>
+            <div id="member-board" class="member-board"></div>
+          </section>
+
+          <section class="section-block task-section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Dependency route</p>
+                <h3>任务进程条</h3>
+              </div>
+              <p>按任务序号排列；路由标签显示前置依赖</p>
+            </div>
+            <div id="task-board" class="task-board"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <template id="team-button-template">
+      <button class="team-button" type="button">
+        <span class="team-button-status"></span>
+        <span class="team-button-copy">
+          <strong></strong>
+          <small></small>
+        </span>
+        <span class="team-button-count"></span>
+      </button>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+name: Feature request
+description: 提议新能力或行为改进
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    attributes:
+      label: 检查
+      options:
+        - label: 我已搜索现有 Issue
+          required: true
+
+  - type: textarea
+    attributes:
+      label: 使用场景
+      description: 描述当前无法完成的具体工作
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 建议行为
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 兼容性与替代方案
+      description: 是否影响状态格式、MCP 工具、Cursor Plugin 或已有团队

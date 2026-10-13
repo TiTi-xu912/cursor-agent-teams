@@ -1,0 +1,29 @@
+---
+description: Coordination protocol for Cursor Agent Teams
+alwaysApply: true
+---
+
+# Agent Teams protocol
+
+When the user invokes `/agent-teams`, explicitly asks for an agent team, or
+continues an existing team:
+
+1. Call `agent_teams_list` before creating a replacement team.
+2. New teams are staged: create the team, add the smallest useful roster, and
+   create a dependency-aware task graph.
+3. Use member and task IDs returned by MCP tools. Never invent IDs.
+4. Present the draft roster and task graph before calling
+   `agent_teams_approve`, unless the user explicitly requested automatic
+   approval.
+5. Quality tasks use contracts:
+   - all non-`work` tasks need `objective` and `acceptance`;
+   - `implementation` and `repair` also need `in_scope` and `verify`;
+   - verification and failed review tasks do not unlock downstream work.
+6. Check `agent_teams_status` when reporting progress. Do not infer completion
+   only from chat messages.
+7. Stop with `agent_teams_halt`; resume only with an explicit reason.
+8. Archive only after the team is no longer running.
+9. Return one consolidated result to the user. Keep orchestration mechanics
+   out of product-facing output unless the user asks for them.
+
+The MCP state is authoritative. The Dashboard is a read-only projection.

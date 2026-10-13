@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "hooks": {
+    "subagentStart": [
+      {
+        "command": "cursor-agent-teams hook",
+        "matcher": "team-.*",
+        "timeout": 10,
+        "failClosed": false
+      }
+    ],
+    "subagentStop": [
+      {
+        "command": "cursor-agent-teams hook",
+        "matcher": "team-.*",
+        "timeout": 10,
+        "failClosed": false,
+        "loop_limit": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "cursor-agent-teams",
+  "version": "0.1.0",
+  "description": "Persistent multi-agent teams with DAG scheduling, Cursor SDK execution, messaging and quality gates.",
+  "author": {
+    "name": "TiTi-xu912",
+    "url": "https://github.com/TiTi-xu912"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/TiTi-xu912/cursor-agent-teams",
+  "repository": "https://github.com/TiTi-xu912/cursor-agent-teams",
+  "keywords": [
+    "multi-agent",
+    "subagents",
+    "orchestration",
+    "cursor-sdk",
+    "mcp"
+  ],
+  "agents": "plugin/agents",
+  "rules": "plugin/rules",
+  "skills": "plugin/skills",
+  "commands": "plugin/commands",
+  "hooks": "plugin/hooks/hooks.json",
+  "mcpServers": "plugin/mcp.json"
+}

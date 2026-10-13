@@ -1,0 +1,75 @@
+{
+  "name": "cursor-agent-teams",
+  "version": "0.1.0",
+  "description": "Persistent multi-agent team orchestration for Cursor",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "TiTi-xu912",
+    "url": "https://github.com/TiTi-xu912"
+  },
+  "homepage": "https://github.com/TiTi-xu912/cursor-agent-teams#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiTi-xu912/cursor-agent-teams.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TiTi-xu912/cursor-agent-teams/issues"
+  },
+  "keywords": [
+    "cursor",
+    "cursor-sdk",
+    "mcp",
+    "multi-agent",
+    "subagents",
+    "agent-orchestration"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    ".cursor-plugin",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "dashboard",
+    "dist/src",
+    "docs",
+    "plugin",
+    "scripts",
+    ".env.example",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "cursor-agent-teams": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev:mcp": "tsx src/mcp/server.ts",
+    "dev:dashboard": "tsx src/cli.ts dashboard",
+    "install:plugin": "node scripts/install-plugin.mjs",
+    "smoke:live": "node scripts/live-smoke.mjs",
+    "prepublishOnly": "npm run verify",
+    "verify": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@cursor/sdk": "1.0.37",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "26.0.0",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vitest": "5.0.4"
+  }
+}

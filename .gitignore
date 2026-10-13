@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.cursor/
+.cursor-agent-teams/
+coverage/
+*.log
+*.tgz
+.DS_Store
+Thumbs.db
+
+# Local planning and implementation notes
+task_plan.md
+findings.md
+progress.md
